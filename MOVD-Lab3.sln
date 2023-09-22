@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOVD-Lab2", "MOVD-Lab2.csproj", "{289DF879-FC10-4BDD-A4DD-DF9845D1801C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{289DF879-FC10-4BDD-A4DD-DF9845D1801C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{289DF879-FC10-4BDD-A4DD-DF9845D1801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{289DF879-FC10-4BDD-A4DD-DF9845D1801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{289DF879-FC10-4BDD-A4DD-DF9845D1801C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9FD864B2-D490-488C-A620-8C5DDD5B9BD2}
+	EndGlobalSection
+EndGlobal
