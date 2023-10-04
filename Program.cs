@@ -1,4 +1,5 @@
 ﻿using System;
+using MathNet.Numerics.LinearAlgebra;
 
 namespace MOVD_Lab2
 {
@@ -11,15 +12,16 @@ namespace MOVD_Lab2
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
 
-            // Задана матриця (Варіант №6)
+            // Задана матриця (Варіант №19)
             int[,] matrixA = new int[5,5] { 
-                { 1, 19, 19, 12, 15 },
-                { -1, -10, -8, -16, -14 },
-                { 3, -3, 3, 1, 3 },
-                { 9, 1, 4, -20, -18 },
-                { 16, -18, 11, -7, 15 },
+                { -2, -2, 6, -9, 6},
+                { 0, 6, 20, -18, 20},
+                { -8, 7, -10, -7, -9 },
+                { -1, -17, 0, -6, 24},
+                { 5, 5, 15, -11, 2},
             };
 
+            //------------------------------------------------------------------------
             //Перший рівень : 
             // 1) Множення матриці на число
             //MultiplyMatrixByNumber(matrixA);
@@ -34,7 +36,18 @@ namespace MOVD_Lab2
             //MatrixMultiplication(matrixA);
 
             // 5) Транспонування матриці
-            TransposeMatrix(matrixA);
+            //TransposeMatrix(matrixA);
+
+            //TODO
+            //6) Реалізувати знаходження визначника матриці 
+            //CalculateDeterminant(); 
+
+            //TODO
+            //7)Знайти обернену матрицю для невироджених матриць
+            //InverseMatrix();
+            //------------------------------------------------------------------------
+            //Другий рівень : 
+            // 1) Розв’язати СЛАР, використовуючи метод Крамера
         }
 
         static void MultiplyMatrixByNumber(int[,] matrix)
@@ -246,6 +259,56 @@ namespace MOVD_Lab2
                 for (int j = 0; j < col; j++)
                 {
                     Console.Write(resultMatrix[i, j] + "  ");
+                }
+                Console.WriteLine();
+            }
+
+        }
+
+        static void CalculateDeterminant()
+        {
+            var matrix = Matrix<double>.Build.DenseOfArray(new double[,]
+            {
+                { -2, -2, 6, -9, 6},
+                { 0, 6, 20, -18, 20},
+                { -8, 7, -10, -7, -9 },
+                { -1, -17, 0, -6, 24},
+                { 5, 5, 15, -11, 2},
+            });
+
+            double determinant = matrix.Determinant();
+
+            Console.WriteLine($"Determinant of the 5x5 matrix: {determinant}");
+        }
+
+        static void InverseMatrix()
+        {
+            var matrix = Matrix<double>.Build.DenseOfArray(new double[,]
+            {
+                { -2, -2, 6, -9, 6},
+                { 0, 6, 20, -18, 20},
+                { -8, 7, -10, -7, -9 },
+                { -1, -17, 0, -6, 24},
+                { 5, 5, 15, -11, 2},
+            });
+
+            double determinant = matrix.Determinant();
+
+            if (determinant != 0)
+            {
+                Console.WriteLine("Матриця невиродждена");
+            }
+            else Console.WriteLine("Визначник дорівнює нулю");
+
+            var inverseMatrix = matrix.Inverse();
+
+            // Виводимо результат на екран
+            Console.WriteLine("Resulting matrix after inverse operation : ");
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < 5; j++)
+                {
+                    Console.Write(inverseMatrix[i, j] + "  ");
                 }
                 Console.WriteLine();
             }
