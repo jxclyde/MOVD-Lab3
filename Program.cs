@@ -6,14 +6,14 @@ namespace MOVD_Lab2
     internal class Program
     {
         public const int multiplier = 2;
-       
+
         static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.DarkCyan;
 
 
             // Задана матриця (Варіант №19)
-            int[,] matrixA = new int[5,5] { 
+            int[,] matrixA = new int[5, 5] {
                 { -2, -2, 6, -9, 6},
                 { 0, 6, 20, -18, 20},
                 { -8, 7, -10, -7, -9 },
@@ -38,7 +38,7 @@ namespace MOVD_Lab2
             // 5) Транспонування матриці
             //TransposeMatrix(matrixA);
 
-            // 6)Операція порівняння матриць
+            //6)Операція порівняння матриць
             //bool areEqual = CompareMatrices(matrixA);
 
             //if (areEqual)
@@ -47,21 +47,34 @@ namespace MOVD_Lab2
             //}
             //else
             //{
-            //    Console.WriteLine("Matrices are not equal !");
+            //    Console.WriteLine("Matrices are not equal, because their corresponding elements are not equal!!!");
             //}
 
-            //TODO
             //7) Реалізувати знаходження визначника матриці 
+            //Console.WriteLine("Out matrix : ");
+            //for (int i = 0; i < 5; i++)
+            //{
+            //    for (int j = 0; j < 5; j++)
+            //    {
+            //        Console.Write(matrixA[i, j] + "  ");
+            //    }
+            //    Console.WriteLine();
+            //}
+            //Console.WriteLine();
             //CalculateDeterminant(); 
 
-            //TODO
             //7)Знайти обернену матрицю для невироджених матриць
             //InverseMatrix();
+
+
             //------------------------------------------------------------------------
             //Другий рівень : 
             // 1) Розв’язати СЛАР, використовуючи метод Крамера
-            double detA = CalculateDeterminant();
-            CramerMethod(detA);
+            //double detA = CalculateDeterminant();
+            //CramerMethod(detA);
+
+            // 2) Розв’язати СЛАР, використовуючи обернену матрицю
+            InverseMethodForSLE();
         }
 
         static void MultiplyMatrixByNumber(int[,] matrix)
@@ -96,6 +109,19 @@ namespace MOVD_Lab2
             Random randomMatrixElemenents = new Random();
             int[,] newMatrix = new int[rows, col];
 
+            // Виводимо нашу матрицю на екран
+            Console.WriteLine("Out matrix : ");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("\n");
+
             // Заповнуюємо матрицю рандомними числами (randomMatrixElemenents < 20)
             for (int i = 0; i < rows; i++)
             {
@@ -106,7 +132,7 @@ namespace MOVD_Lab2
                 }
             }
 
-            // Виводимо матрицю на екран
+            // Виводимо нову матрицю на екран
             Console.WriteLine("Matrix we will use for Addition operation : ");
             for (int i = 0; i < rows; i++)
             {
@@ -116,6 +142,8 @@ namespace MOVD_Lab2
                 }
                 Console.WriteLine(); 
             }
+
+            Console.WriteLine("\n");
 
             int[,] resultMatrix = new int[rows, col];
 
@@ -129,7 +157,7 @@ namespace MOVD_Lab2
             }
 
             // Виводимо результат на екран
-            Console.WriteLine("Resulting matrix after addition operation : ");
+            Console.WriteLine("Resulting matrix after our addition operation : ");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -158,6 +186,18 @@ namespace MOVD_Lab2
                 }
             }
 
+            // Виводимо нашу матрицю на екран
+            Console.WriteLine("Out matrix : ");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+
             // Виводимо матрицю на екран
             Console.WriteLine("Matrix we will use for Subtraction operation : ");
             for (int i = 0; i < rows; i++)
@@ -168,6 +208,8 @@ namespace MOVD_Lab2
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n");
+
 
             int[,] resultMatrix = new int[rows, col];
 
@@ -181,7 +223,7 @@ namespace MOVD_Lab2
             }
 
             // Виводимо результат на екран
-            Console.WriteLine("Resulting matrix after subtraction operation : ");
+            Console.WriteLine("Resulting matrix after our subtraction operation : ");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -199,6 +241,18 @@ namespace MOVD_Lab2
             int col = 5;
             Random randomMatrixElemenents = new Random();
             int[,] newMatrix = new int[rows, col];
+
+            // Виводимо нашу матрицю на екран
+            Console.WriteLine("Out matrix : ");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write(matrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
 
             // Заповнуюємо матрицю рандомними числами (randomMatrixElemenents < 20)
             for (int i = 0; i < rows; i++)
@@ -220,6 +274,8 @@ namespace MOVD_Lab2
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n");
+
 
             int[,] resultMatrix = new int[rows, col];
 
@@ -238,7 +294,7 @@ namespace MOVD_Lab2
             }
 
             // Виводимо результат на екран
-            Console.WriteLine("Resulting matrix after subtraction operation : ");
+            Console.WriteLine("Resulting matrix after our Multiplication operation : ");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < col; j++)
@@ -256,7 +312,7 @@ namespace MOVD_Lab2
             int col = 5;
             int[,] resultMatrix = new int[5, 5];
 
-            // Транспонуємо матрицю
+            //Транспонуємо матрицю
             for (int i = 0; i < rows; i++)
             {
                 for (int j = i; j < col; j++)
@@ -266,16 +322,17 @@ namespace MOVD_Lab2
                 }
             }
 
-            // Виводимо результат на екран
-            Console.WriteLine("Resulting matrix after transpose operation : ");
+            //І виводимо результат на екран
+            Console.WriteLine("Resulting matrix after Transpose operation : ");
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < col; j++)
                 {
-                    Console.Write(resultMatrix[i, j] + "  ");
+                    Console.Write($"{resultMatrix[i, j],4}");
                 }
                 Console.WriteLine();
             }
+
 
         }
 
@@ -296,6 +353,18 @@ namespace MOVD_Lab2
                 }
             }
 
+            // Виводимо нашу матрицю на екран
+            Console.WriteLine("Out matrix : ");
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < col; j++)
+                {
+                    Console.Write(mainMatrix[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("\n");
+
             // Виводимо матрицю на екран
             Console.WriteLine("Matrix we will use for Comprasion operation : ");
             for (int i = 0; i < rows; i++)
@@ -306,6 +375,8 @@ namespace MOVD_Lab2
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n");
+
 
             for (int i = 0; i < rows; i++)
             {
@@ -354,9 +425,11 @@ namespace MOVD_Lab2
 
             if (determinant != 0)
             {
-                Console.WriteLine("Матриця невиродждена");
+                Console.WriteLine("Determinant != 0, so :");
             }
-            else Console.WriteLine("Визначник дорівнює нулю");
+            else Console.WriteLine("Determinant = 0");
+
+            Console.WriteLine();
 
             var inverseMatrix = matrix.Inverse();
 
@@ -366,7 +439,8 @@ namespace MOVD_Lab2
             {
                 for (int j = 0; j < 5; j++)
                 {
-                    Console.Write(inverseMatrix[i, j] + "  ");
+                    double roundedValue = Math.Round(inverseMatrix[i, j], 4);  
+                    Console.Write(roundedValue + "  ",8);
                 }
                 Console.WriteLine();
             }
@@ -390,29 +464,31 @@ namespace MOVD_Lab2
                     a[i, j] = Convert.ToDouble(coefficients[j]);
                 }
 
-                Console.Write("Enter free members : ");
+                Console.Write("Enter free member : ");
                 b[i] = Convert.ToDouble(Console.ReadLine());
             }
 
-            Console.WriteLine("\nThe system of equations was successfully entered \n!");
+            Console.WriteLine();
+            Console.WriteLine("\nThe system of equations was successfully entered!\n");
 
             Matrix<double> matrixA = Matrix<double>.Build.DenseOfArray(a);
             Vector<double> vectorB = Vector<double>.Build.Dense(b);
 
             if (detA != 0)
             {
-                Console.WriteLine($"Matrix A determinant =  {detA}");
+                Console.WriteLine($"Main Matrix determinant =  {detA}");
             }
             else
             {
                 Console.WriteLine("Матриця A вироджена");
             }
 
+            Console.WriteLine();
             Console.WriteLine("Cramer Method: ");
 
             for (int i = 0; i < 5; i++)
             {
-                Console.WriteLine($"\nMatrix A{i + 1}");
+                Console.WriteLine($"\nMatrix A{i + 1} : ");
 
                 Matrix<double> matrixAi = matrixA.Clone();
                 matrixAi.SetColumn(i, vectorB);
@@ -420,11 +496,75 @@ namespace MOVD_Lab2
                 double detAi = matrixAi.Determinant();
                 double xi = detAi / detA;
 
-                Console.WriteLine($"\nMatrix А determinant{i + 1}: {detAi}");
-                Console.WriteLine($"x{i + 1} = {xi}");
+                var detValue = Math.Round(detAi, 4);
+                Console.WriteLine($"\nMatrix А determinant{i + 1}: {detValue}");
+
+                var xiValue = Math.Round(xi, 4); 
+                Console.WriteLine($"x{i + 1} = {xiValue}");
+
+                Console.WriteLine();
             }
         }
 
+
+        static void InverseMethodForSLE()
+        {
+            double[,] coefficients = {
+            { -2, -2, 6, -9, 6 },
+            { 0, 6, 20, -18, 20 },
+            { -8, 7, -10, -7, -9 },
+            { -1, -17, 0, -6, 24 },
+            { 5, 5, 15, -11, 2 }
+            };
+
+            Console.WriteLine("Our matrix of coefficients (A) : ");
+            for (int i = 0; i < 5; i++)
+            {
+                for (int j = 0; j < coefficients.GetLength(1); j++)
+                {
+                    Console.Write(coefficients[i, j] + "  ");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
+
+            double[] results = { 18, 11, -8, 20, 16 };
+            Console.WriteLine("Our free members (B) : ");
+            for (int i = 0; i < results.Length; i++)
+            {
+                Console.WriteLine($"{results[i]}");
+            }
+            Console.WriteLine();
+
+
+            var matrix = Matrix<double>.Build.DenseOfArray(coefficients);
+            var vector = Vector<double>.Build.Dense(results);
+
+            double determinant = matrix.Determinant();
+            
+            matrix.Transpose();
+
+            Console.WriteLine("Now we can perform multiplication for our general equation X = A^-1 * B");
+            Console.WriteLine();
+
+            if (determinant != 0)
+            {
+                var inverseMatrix = matrix.Inverse();
+
+                var solution = inverseMatrix.Multiply(vector);
+
+                Console.WriteLine("Results (X) :");
+                for (int i = 0; i < solution.Count; i++)
+                {
+                    Console.WriteLine($"x{i + 1} = {solution[i]}", 5);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Determinant = 0");
+            }
+
+        }
 
         
     }
